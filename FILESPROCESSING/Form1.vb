@@ -12,10 +12,20 @@ Public Class Form1
                 Writer.WriteLine("Second line of text.")
             End Using
 
+            Using Reader As New StreamReader(filePath)
+                Dim content As String = Reader.ReadToEnd()
+                Console.WriteLine("File Content:")
+                Console.WriteLine(content)
+            End Using
+
             MessageBox.Show("File written successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
             MessageBox.Show("Error writing file: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
     End Sub
 End Class
